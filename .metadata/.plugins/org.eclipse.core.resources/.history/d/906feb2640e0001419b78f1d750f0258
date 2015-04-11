@@ -1,0 +1,38 @@
+package uk.ac.aber.chh57;
+
+public class ClasspathInspector extends java.lang.Object {
+
+	@SuppressWarnings("rawtypes")
+	public static java.util.List<java.lang.Class> getAllKnownClasses()
+			throws java.net.MalformedURLException {
+
+	}
+
+	public static java.util.List<java.lang.Class> getMatchingClasses(
+			java.lang.Class interfaceOrSuperclass, java.net.URL url)
+			throws java.net.MalformedURLException {
+
+	}
+
+	public static java.util.List<java.io.File> getClassLocationsForCurrentClasspath() {
+
+	}
+
+	public static java.net.URL normalize(java.net.URL url)
+			throws java.net.MalformedURLException {
+
+	}
+
+	public static java.util.List<java.lang.Class> getMatchingClasses(
+			java.lang.Class interfaceOrSuperclass, java.io.File file)
+			throws java.net.MalformedURLException {
+
+	}
+
+	public static java.util.List<java.lang.Class> getMatchingClasses(
+			java.lang.Class interfaceOrSuperclass)
+			throws java.net.MalformedURLException {
+
+	}
+
+}

@@ -1,0 +1,15 @@
+package uk.ac.aber.chh57;
+
+public class ClasspathInspector extends java.lang.Object {
+
+	@SuppressWarnings("rawtypes")
+	public static ArrayList<java.lang.class> getAllKnownClasses()
+            throws java.net.MalformedURLException{
+		java.util.List<java.lang.Class> test;
+		
+		return test;
+	}
+	
+	
+	
+}

@@ -7,4 +7,9 @@ public class ClassSelector extends javax.swing.JDialog {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	
+	public void addURL(java.net.URL url) throws java.lang.Exception {
+		
+	}
+	
 }
