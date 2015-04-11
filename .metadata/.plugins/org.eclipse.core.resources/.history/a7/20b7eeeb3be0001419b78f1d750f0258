@@ -1,0 +1,5 @@
+package uk.ac.aber.chh57;
+
+public class ImagePanel extends javax.swing.JPanel implements java.awt.event.MouseListener, java.awt.event.MouseMotionListener, javax.swing.Scrollable {
+
+}
