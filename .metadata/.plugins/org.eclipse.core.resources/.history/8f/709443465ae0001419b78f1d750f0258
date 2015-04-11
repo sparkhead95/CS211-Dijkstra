@@ -8,10 +8,6 @@ public class ISnapperFactory extends java.lang.Object {
 		
 	}
 	
-	// *************************************************
 	
-	public static ISnapper getSnapper(java.lang.String className){
-		
-	}
 	
 }

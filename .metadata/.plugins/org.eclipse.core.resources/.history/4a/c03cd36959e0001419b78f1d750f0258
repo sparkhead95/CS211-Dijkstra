@@ -8,19 +8,11 @@ public class ImagePanel extends javax.swing.JPanel implements
 		java.awt.event.MouseListener, java.awt.event.MouseMotionListener,
 		javax.swing.Scrollable {
 
-	// ***************** Constructors ***********************
-	
-	ImagePanel(java.awt.image.BufferedImage img){
-		
-	}
-	
-	// **************** Global Variables ********************
-	
-	public static int VIEW_IMAGE;
-	public static int VIEW_EDGES;
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
-	
-	// ******************************************************
+
 	public Dimension getPreferredScrollableViewportSize() {
 		// TODO Auto-generated method stub
 		return null;
@@ -89,11 +81,4 @@ public class ImagePanel extends javax.swing.JPanel implements
 		
 	}
 
-	public void setSnapper(ISnapper s){
-		
-	}
-	
-	public void setViewMode(int vm){
-		
-	}
 }

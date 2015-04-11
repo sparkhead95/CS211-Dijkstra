@@ -15,10 +15,9 @@ public class ImagePanel extends javax.swing.JPanel implements
 	}
 	
 	// **************** Global Variables ********************
-	
 	public static int VIEW_IMAGE;
-	public static int VIEW_EDGES;
 	private static final long serialVersionUID = 1L;
+	public static int VIEW_EDGES;
 	
 	// ******************************************************
 	public Dimension getPreferredScrollableViewportSize() {

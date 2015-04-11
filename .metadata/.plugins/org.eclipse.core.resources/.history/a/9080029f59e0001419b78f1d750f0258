@@ -10,14 +10,8 @@ public class ImagePanel extends javax.swing.JPanel implements
 
 	// ***************** Constructors ***********************
 	
-	ImagePanel(java.awt.image.BufferedImage img){
-		
-	}
-	
 	// **************** Global Variables ********************
 	
-	public static int VIEW_IMAGE;
-	public static int VIEW_EDGES;
 	private static final long serialVersionUID = 1L;
 	
 	// ******************************************************
