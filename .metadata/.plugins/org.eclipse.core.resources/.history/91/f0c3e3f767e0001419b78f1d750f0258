@@ -1,0 +1,28 @@
+package uk.ac.aber.chh57;
+
+public class LineSnapper extends javax.swing.JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	// ***************** Constructors ********************
+
+	public LineSnapper(java.lang.String snapperClass) {
+
+	}
+
+	// **************************************************
+
+	public static void main(java.lang.String[] args) {
+		ImagePanel imagePanel = new ImagePanel(null);
+	}
+
+	public javax.swing.JFileChooser setUpFileDialog(
+			javax.swing.JFileChooser jFileChooser1, java.lang.String type,
+			java.lang.String... exts) {
+
+	}
+
+}
