@@ -47,6 +47,7 @@ public class ClassPathInspector extends java.lang.Object {
 			throws java.net.MalformedURLException {
 
 		List<Class> classes = new ArrayList<Class>();
+		classes.add(ClassSelector);
 		return classes;
 	}
 

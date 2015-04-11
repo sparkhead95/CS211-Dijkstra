@@ -126,7 +126,7 @@ public class FloatImage extends java.lang.Object {
 	}
 
 	public int getHeight() {
-		return height;
+
 	}
 
 	public java.awt.image.BufferedImage getImage() {
@@ -134,7 +134,7 @@ public class FloatImage extends java.lang.Object {
 	}
 
 	public int getWidth() {
-		return width;
+
 	}
 
 	public void magnitude() {
@@ -163,7 +163,7 @@ public class FloatImage extends java.lang.Object {
 	}
 
 	public void set_nocheck(int i, float v) {
-		
+		i = v;
 	}
 
 	public void set_nocheck(int x, int y, float v) {
