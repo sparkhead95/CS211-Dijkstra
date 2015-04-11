@@ -6,25 +6,32 @@ import java.util.List;
 import java.lang.Class;
 import java.io.File;
 
-public class ClasspathInspector extends java.lang.Object {
+public class ClassPathInspector extends java.lang.Object {
 
+	public ClassPathInspector() {
+	}
+	
+	// Returns a list of all the known classes in the program
 	@SuppressWarnings("rawtypes")
 	public static List<Class> getAllKnownClasses()
 			throws java.net.MalformedURLException {
 		
 	}
 
+	// Returns a list of classes that match the params- for interface/superclass and URL
 	@SuppressWarnings("rawtypes")
 	public static List<Class> getMatchingClasses(
-			java.lang.Class interfaceOrSuperclass, java.net.URL url)
+			Class interfaceOrSuperclass, URL url)
 			throws java.net.MalformedURLException {
 
 	}
 
+	// Returns a list of files (where locations can be found from them) for the current class path
 	public static List<File> getClassLocationsForCurrentClasspath() {
 
 	}
-
+	
+	// Returns a normalised URL
 	public static URL normalize(URL url)
 			throws java.net.MalformedURLException {
 
@@ -33,6 +40,7 @@ public class ClasspathInspector extends java.lang.Object {
 		return url;
 	}
 
+	// Returns a list of classes that match the params- for interface/superclass and file(location of file)
 	@SuppressWarnings("rawtypes")
 	public static List<Class> getMatchingClasses(
 			Class interfaceOrSuperclass, File file)
@@ -41,9 +49,9 @@ public class ClasspathInspector extends java.lang.Object {
 		List<Class> classes = new ArrayList<Class>();
 		classes.add(ClassSelector);
 		return classes;
-		
 	}
 
+	// Returns a list of classes that match the params- for interface/superclass
 	@SuppressWarnings("rawtypes")
 	public static List<Class> getMatchingClasses(
 			Class interfaceOrSuperclass)

@@ -1,0 +1,24 @@
+package uk.ac.aber.chh57;
+
+import java.lang.Class;
+import java.net.URL;
+import java.lang.Exception;
+
+public class ClassSelector extends javax.swing.JDialog {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	
+	public void addURL(URL url) throws Exception {
+		
+	}
+	
+	public Class getSelection(){
+		Class selectedClass = new Class();
+		
+	}
+	
+}

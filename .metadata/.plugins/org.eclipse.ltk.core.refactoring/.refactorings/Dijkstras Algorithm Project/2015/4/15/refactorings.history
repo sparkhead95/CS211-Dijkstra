@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;uk.ac.aber.chh57.ClasspathInspector&apos; to &apos;ClassPathInspector&apos;&#x0D;&#x0A;- Original project: &apos;Dijkstras Algorithm Project&apos;&#x0D;&#x0A;- Original element: &apos;uk.ac.aber.chh57.ClasspathInspector&apos;&#x0D;&#x0A;- Renamed element: &apos;uk.ac.aber.chh57.ClassPathInspector&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ClasspathInspector&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;uk.ac.aber.chh57{ClasspathInspector.java[ClasspathInspector" matchStrategy="1" name="ClassPathInspector" qualified="false" references="true" similarDeclarations="false" stamp="1428761923822" textual="false" version="1.0"/>
+</session>

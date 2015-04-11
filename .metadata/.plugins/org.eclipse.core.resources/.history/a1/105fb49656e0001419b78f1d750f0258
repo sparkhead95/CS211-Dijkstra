@@ -1,0 +1,20 @@
+package uk.ac.aber.chh57;
+
+public class FloatImage extends java.lang.Object {
+
+	// Constructs an empty FloatImage
+	public FloatImage() {
+
+	}
+
+	public FloatImage(int w, int h) {
+
+	}
+
+	public FloatImage(int w, int h, float[] d) {
+
+	}
+
+	
+	
+}

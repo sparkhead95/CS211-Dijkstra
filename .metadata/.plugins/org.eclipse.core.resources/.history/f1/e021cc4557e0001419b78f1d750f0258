@@ -1,0 +1,74 @@
+package uk.ac.aber.chh57;
+
+public class FloatImage extends java.lang.Object {
+
+	// Constructs an empty FloatImage
+	public FloatImage() {
+
+	}
+
+	// Constructs a FloatImage of the size specified
+	public FloatImage(int w, int h) {
+
+	}
+
+	// Constructs a FloatImage of the size specified from a suitably sized array
+	// of floats
+	public FloatImage(int w, int h, float[] d) {
+
+	}
+
+	// Constructs a FloatImage of the size specified from a suitably sized array
+	// of floats
+	public FloatImage(int w, int h, double[] d) {
+
+	}
+
+	public boolean add(float w) {
+
+	}
+
+	public boolean add(FloatImage fimg) {
+
+	}
+	
+	public boolean add(FloatImage fimg, float w){
+		
+	}
+	
+	public void add(FloatImage fimg1, FloatImage fimg2){
+		
+	}
+	
+	public void convertImage(java.awt.image.BufferedImage bimg){
+		
+	}
+	
+	public static void convertImage(java.awt.image.BufferedImage img, FloatImage red, FloatImage green, FloatImage blue){
+		
+	}
+	
+	public void convolve_x(FloatImage fimg, float[] filter, int m, int scale){
+		
+	}
+	
+	public void convolve_y(FloatImage fimg, float[] filter, int m, int scale){
+		
+	}
+
+	public void convolve(float[] filter, int m, int scale){
+		
+	}
+	
+	public void convolve(FloatImage fimg, float[][] filter, int m, int n, int scale){
+		
+	}
+
+	public void convolve(FloatImage fimg, FloatImage filter, int m, int n, int scale){
+		
+	}
+	
+	public FloatImage copy(){
+		
+	}
+}
