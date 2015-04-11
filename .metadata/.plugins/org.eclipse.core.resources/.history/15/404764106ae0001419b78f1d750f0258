@@ -8,10 +8,12 @@ import cs21120.assignment2.ISnapper;
 
 public class Run implements ISnapper {
 
-	public static void main(String[] args) {
-
+	public static void main(String [] args)
+	{
+		
 	}
-
+	
+	
 	public LinkedList<Point> getPath(int arg0, int arg1) {
 		// TODO Auto-generated method stub
 		return null;
@@ -19,7 +21,7 @@ public class Run implements ISnapper {
 
 	public void setSeed(int arg0, int arg1, FloatImage[] arg2) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 }
