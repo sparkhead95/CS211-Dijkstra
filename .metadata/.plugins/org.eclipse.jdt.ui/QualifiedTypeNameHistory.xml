@@ -4,4 +4,5 @@
 <fullyQualifiedTypeName name="java.net.URL"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="cs21120.assignment2.ISnapper"/>
+<fullyQualifiedTypeName name="java.util.concurrent.BlockingQueue"/>
 </qualifiedTypeNameHistroy>
