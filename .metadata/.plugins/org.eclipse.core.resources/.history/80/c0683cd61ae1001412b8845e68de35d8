@@ -14,7 +14,6 @@ public class Run implements ISnapper {
 		BlockingQueue<Edge> edges   = new PriorityBlockingQueue<Edge>();
 		// The below boolean will be of the same size as the pixels in the image
 		boolean[] visited;
-		Point[] map;
 	}
 
 	public LinkedList<Point> getPath(int arg0, int arg1) {

@@ -1,0 +1,10 @@
+package uk.ac.aber.chh57;
+
+public class Edge implements Comparable<Object> {
+
+	public int compareTo(Object arg0) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}
