@@ -1,0 +1,51 @@
+package cs21120.assignment2.solution;
+
+import java.awt.Point;
+import java.util.LinkedList;
+import java.util.concurrent.PriorityBlockingQueue;
+import cs21120.assignment2.FloatImage;
+import cs21120.assignment2.ISnapper;
+
+public class Chh57Snapper implements ISnapper {
+
+	// The below boolean will be of the same size as the pixels in the image
+	private boolean[][] visited;
+	private Point[][] map;
+
+	public LinkedList<Point> getPath(int arg0, int arg1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	// @param The neighborPixels variable is the array of pixels next to the mouse coords
+	// @param xCoord is the x coordinates of the mouse click
+	// @param yCoord is the y coordinates of the mouse click
+	public void setSeed(int xCoord, int yCoord, FloatImage[] neighborPixels) {
+		final PriorityBlockingQueue<Edge> edges = new PriorityBlockingQueue<Edge>();
+		/*
+		 * neighborPixels: 0 is east 1 is northeast, 2 north, 3 northwest
+		 */
+		
+		visited = new boolean[neighborPixels[0].getWidth()][neighborPixels[0].getHeight()];
+		map = new Point[neighborPixels[0].getWidth()]{neighborPixels[0].getHeight()];
+	}
+
+	private class Edge implements Comparable<Edge> {
+
+		private Point start, destination;
+		private float weight;
+
+		public Edge(Point s, Point d, float w) {
+			this.start = s;
+			this.destination = d;
+			this.weight = w;
+		}
+
+		public int compareTo(Edge otherEdge) {
+			// TODO Auto-generated method stub
+			return Float.valueOf(weight).compareTo(otherEdge.weight);
+		}
+
+	}
+
+}
