@@ -108,50 +108,9 @@ public class Chh57Snapper implements ISnapper {
 						&& (checkBounds(thisEdge.destination.x - 1,
 								thisEdge.destination.y - 1)) // southwest
 						&& (checkBounds(thisEdge.destination.x,
-								thisEdge.destination.y - 1) // south
+								thisEdge.destination.y - 1)
 						&& (checkBounds(thisEdge.destination.x + 1,
-								thisEdge.destination.y - 1)))) { // southeast
-					
-					
-					// @param for the Western Node
-					float weight = floatImages[0].get_nocheck(
-							thisEdge.destination.x, thisEdge.destination.y);
-					newEdge = new Edge(new Point(thisEdge.destination.x,
-							thisEdge.destination.y), new Point(
-							thisEdge.destination.x - 1,
-							thisEdge.destination.y), weight
-							+ thisEdge.weight);
-					eQueue.add(newEdge);
-					
-					// @param for the South Western Node
-					weight = floatImages[0].get_nocheck(
-							thisEdge.destination.x, thisEdge.destination.y);
-					newEdge = new Edge(new Point(thisEdge.destination.x,
-							thisEdge.destination.y), new Point(
-							thisEdge.destination.x - 1,
-							thisEdge.destination.y - 1), weight
-							+ thisEdge.weight);
-					eQueue.add(newEdge);
-					
-					// @param for the South Node
-					weight = floatImages[0].get_nocheck(
-							thisEdge.destination.x, thisEdge.destination.y);
-					newEdge = new Edge(new Point(thisEdge.destination.x,
-							thisEdge.destination.y), new Point(
-							thisEdge.destination.x,
-							thisEdge.destination.y - 1), weight
-							+ thisEdge.weight);
-					eQueue.add(newEdge);
-					
-					// @param for the South east Node
-					weight = floatImages[0].get_nocheck(
-							thisEdge.destination.x, thisEdge.destination.y);
-					newEdge = new Edge(new Point(thisEdge.destination.x,
-							thisEdge.destination.y), new Point(
-							thisEdge.destination.x + 1,
-							thisEdge.destination.y - 1), weight
-							+ thisEdge.weight);
-					eQueue.add(newEdge);
+								thisEdge.destination.y - 1)))) {
 
 				}
 			} catch (InterruptedException e) {
