@@ -33,7 +33,8 @@ public class Chh57Snapper implements ISnapper {
 
 	}
 
-	// @param The neighborImages variable is the array of pixels next to the mouse coords
+	// @param The neighborPixels variable is the array of pixels next to the
+	// mouse coords
 	// @param xCoord is the x coordinates of the mouse click
 	// @param yCoord is the y coordinates of the mouse click
 	public void setSeed(int xCoord, int yCoord, FloatImage[] neighborImages) {
@@ -119,31 +120,25 @@ public class Chh57Snapper implements ISnapper {
 						&& (checkBounds(thisEdge.destination.x + 1,
 								thisEdge.destination.y - 1)))) { // southeast
 
-					// ********************** WEST *****************************
-					
+					// ********************** WEST **************************
 					weight = setWeight(0, thisEdge);
 					newEdge = findEdge(thisEdge, weight, "minus", "null", 1, 0);
 					eQueue.add(newEdge);
 
-					// ******************* SOUTH-WEST **************************
-					
+					// @param for the South Western Node
 					weight = setWeight(1, thisEdge);
 					newEdge = findEdge(thisEdge, weight, "minus", "minus", 1, 1);
 					eQueue.add(newEdge);
 
-					// ********************** SOUTH ****************************
-					
+					// @param for the South Node
 					weight = setWeight(2, thisEdge);
 					newEdge = findEdge(thisEdge, weight, "null", "minus", 0, 1);
 					eQueue.add(newEdge);
 
-					// ******************* SOUTH-EAST **************************
-					
+					// @param for the South east Node
 					weight = setWeight(3, thisEdge);
 					newEdge = findEdge(thisEdge, weight, "plus", "minus", 1, 1);
 					eQueue.add(newEdge);
-					
-					// *********************************************************
 
 				}
 			}

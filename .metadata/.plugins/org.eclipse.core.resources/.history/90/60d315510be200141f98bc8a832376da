@@ -33,7 +33,8 @@ public class Chh57Snapper implements ISnapper {
 
 	}
 
-	// @param The neighborImages variable is the array of pixels next to the mouse coords
+	// @param The neighborImages variable is the array of pixels next to the
+	// mouse coords
 	// @param xCoord is the x coordinates of the mouse click
 	// @param yCoord is the y coordinates of the mouse click
 	public void setSeed(int xCoord, int yCoord, FloatImage[] neighborImages) {
