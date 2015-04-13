@@ -19,7 +19,6 @@ public class Chh57Snapper implements ISnapper {
 
 	// @param xCoord is the x coordinate of the current path
 	// @param yCoord is the y coordinate of the current path
-	// @return the path.
 	public LinkedList<Point> getPath(int xCoord, int yCoord) {
 		// if the current location is in bounds
 		if (checkBounds(xCoord, yCoord)) {
@@ -182,13 +181,6 @@ public class Chh57Snapper implements ISnapper {
 	}
 	
 	// this method was created to reduce complication and repetition in the build map method.
-	// @param thisEdge is the edge to be manipulated and located
-	// @param weight is the weight that was manipulated within the for-loops above.
-	// @param xOperator is the value to decipher whether the x location will be manipulated with a plus or a minus.
-	// @param yOperator is the value to decipher whether the y location will be manipulated with a plus or a minus.
-	// @param xMod is the value that the x coordinate will be incremented by.
-	// @param yMod is the value that the y coordinate will be incremented by.
-	// @return the new edge with its appropriate location.
 	public Edge findEdge(Edge thisEdge, float weight, String xOperator,
 			String yOperator, int xMod, int yMod) {
 		if (xMod == 0 && yMod == 0) {
@@ -261,35 +253,24 @@ public class Chh57Snapper implements ISnapper {
 
 	}
 
-	// @param xCoord is the x coordinate of the position in question.
-	// @param yCoord is the y coordinate of the position in question.
-	// @return true if the position in within the bounds of the map.
 	private boolean checkBounds(int xCoord, int yCoord) {
 		return xCoord < map.length && yCoord < map[0].length && xCoord >= 0
 				&& yCoord >= 0;
 	}
 
-	// inner class for edge
+	// @param inner class for edge
+
 	private class Edge implements Comparable<Edge> {
 
-		// create variables for the start of the edge and the destination of it.
 		private Point start, destination;
-		// storage of the weight of the edge
 		private float weight;
 
-		// constructor to create a new edge
-		// @param s is the start of the edge to be create
-		// @param d is the destination of the edge to be create
-		// @param w is the weight of the edge to be create
 		public Edge(Point s, Point d, float w) {
 			this.start = s;
 			this.destination = d;
 			this.weight = w;
 		}
 
-		// comparison method to compare edges.
-		// @param otherEdge is the other edge to compare to.
-		// @return the value of the current weight of the other edge.
 		public int compareTo(Edge otherEdge) {
 			return Float.valueOf(weight).compareTo(otherEdge.weight);
 		}

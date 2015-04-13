@@ -19,7 +19,6 @@ public class Chh57Snapper implements ISnapper {
 
 	// @param xCoord is the x coordinate of the current path
 	// @param yCoord is the y coordinate of the current path
-	// @return the path.
 	public LinkedList<Point> getPath(int xCoord, int yCoord) {
 		// if the current location is in bounds
 		if (checkBounds(xCoord, yCoord)) {

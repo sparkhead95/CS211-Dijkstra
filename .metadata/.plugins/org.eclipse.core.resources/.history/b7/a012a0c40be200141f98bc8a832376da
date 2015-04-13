@@ -10,33 +10,19 @@ import cs21120.assignment2.ISnapper;
 public class Chh57Snapper implements ISnapper {
 
 	// The below boolean will be of the same size as the pixels in the image
-	// 2d array for visited nodes
 	private boolean[][] visited;
-	// 2d array for the map
 	private Point[][] map;
-	// array for the floatImages that can be manipulated as the program continues
 	private FloatImage[] floatImages;
 
-	// @param xCoord is the x coordinate of the current path
-	// @param yCoord is the y coordinate of the current path
-	// @return the path.
 	public LinkedList<Point> getPath(int xCoord, int yCoord) {
-		// if the current location is in bounds
 		if (checkBounds(xCoord, yCoord)) {
-			// and it has been visited
 			if (visited[xCoord][yCoord]) {
-				// create a new linked list of points
 				LinkedList<Point> myNodes = new LinkedList<Point>();
-				// create a new point which is of location that has been passed in within parameters
 				Point nextNode = map[xCoord][yCoord];
-				// and while it exists
 				while (nextNode != null) {
-					// add to the linked list of points
 					myNodes.add(new Point(nextNode));
-					// assigns the next node
 					nextNode = map[nextNode.x][nextNode.y];
 				}
-				// which will eventually return the path
 				return myNodes;
 			} else {
 				return null;
@@ -56,32 +42,25 @@ public class Chh57Snapper implements ISnapper {
 		 * neighborPixels: 0 is east 1 is northeast, 2 north, 3 northwest
 		 */
 		floatImages = neighborImages;
-		// set the seed to visited
 		visited = new boolean[neighborImages[0].getWidth()][neighborImages[0]
 				.getHeight()];
-		// allocate the seed as a new point within map
 		map = new Point[neighborImages[0].getWidth()][neighborImages[0]
 				.getHeight()];
-		// add this location to the list of edges
 		edges.add(new Edge(null, new Point(xCoord, yCoord), 0));
 		Runnable run = new Runnable() {
 
 			public void run() {
-				// run the method to build the edges and establish locations of floatimages
+
 				mapBuilding(edges);
 			}
 
 		};
-		// thread control as there will be multiple functions within the program at once
 		Thread thisThread = new Thread(run);
 		thisThread.start();
 	}
 
-	// @param eQueue is the queue of edges (which the 'Edge' type contains compareTo in order to differentiate between Edges)
 	public void mapBuilding(PriorityBlockingQueue<Edge> eQueue) {
-		// create the next new edge
 		Edge newEdge;
-		// temp variable for weight that will be changed through loops
 		float weight;
 		try {
 			while (!eQueue.isEmpty()) {
@@ -173,22 +152,11 @@ public class Chh57Snapper implements ISnapper {
 		}
 	}
 
-	// @param direction will be 0, 1, 2 or 3. These values are defined for their direction in comments at the top of this .java file.
-	// @param thisEdge is the edge to be located.
-	// @return the location of the edge at the certain position
 	public float setWeight(int direction, Edge thisEdge) {
 		return floatImages[direction].get_nocheck(thisEdge.destination.x,
 				thisEdge.destination.y);
 	}
-	
-	// this method was created to reduce complication and repetition in the build map method.
-	// @param thisEdge is the edge to be manipulated and located
-	// @param weight is the weight that was manipulated within the for-loops above.
-	// @param xOperator is the value to decipher whether the x location will be manipulated with a plus or a minus.
-	// @param yOperator is the value to decipher whether the y location will be manipulated with a plus or a minus.
-	// @param xMod is the value that the x coordinate will be incremented by.
-	// @param yMod is the value that the y coordinate will be incremented by.
-	// @return the new edge with its appropriate location.
+
 	public Edge findEdge(Edge thisEdge, float weight, String xOperator,
 			String yOperator, int xMod, int yMod) {
 		if (xMod == 0 && yMod == 0) {
@@ -261,35 +229,24 @@ public class Chh57Snapper implements ISnapper {
 
 	}
 
-	// @param xCoord is the x coordinate of the position in question.
-	// @param yCoord is the y coordinate of the position in question.
-	// @return true if the position in within the bounds of the map.
 	private boolean checkBounds(int xCoord, int yCoord) {
 		return xCoord < map.length && yCoord < map[0].length && xCoord >= 0
 				&& yCoord >= 0;
 	}
 
-	// inner class for edge
+	// @param inner class for edge
+
 	private class Edge implements Comparable<Edge> {
 
-		// create variables for the start of the edge and the destination of it.
 		private Point start, destination;
-		// storage of the weight of the edge
 		private float weight;
 
-		// constructor to create a new edge
-		// @param s is the start of the edge to be create
-		// @param d is the destination of the edge to be create
-		// @param w is the weight of the edge to be create
 		public Edge(Point s, Point d, float w) {
 			this.start = s;
 			this.destination = d;
 			this.weight = w;
 		}
 
-		// comparison method to compare edges.
-		// @param otherEdge is the other edge to compare to.
-		// @return the value of the current weight of the other edge.
 		public int compareTo(Edge otherEdge) {
 			return Float.valueOf(weight).compareTo(otherEdge.weight);
 		}
