@@ -8,4 +8,5 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="cs21120.assignment2.LineSnapper"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Dijkstras Algorithm Project"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Xms40m -Xmx256m"/>
 </launchConfiguration>

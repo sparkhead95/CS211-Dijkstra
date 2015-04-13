@@ -170,8 +170,7 @@ public class Chh57Snapper implements ISnapper {
 				thisEdge.destination.y);
 	}
 	
-	public Edge findEdge(Edge thisEdge){
-		return null;
+	public Edge findEdge(){
 		
 	}
 
