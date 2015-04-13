@@ -20,12 +20,9 @@ public class Chh57Snapper implements ISnapper {
 				LinkedList<Point> myNodes = new LinkedList<Point>();
 				Point nextNode = map[xCoord][yCoord];
 				while (nextNode!=null){
-					myNodes.add(new Point(nextNode));
-					nextNode = map[nextNode.x][nextNode.y];
+					myNodes.add(new Point(nextNode))
 				}
-				return myNodes;
 			}
-			else return null;
 		}
 		else{
 			return null;

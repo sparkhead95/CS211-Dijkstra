@@ -23,9 +23,7 @@ public class Chh57Snapper implements ISnapper {
 					myNodes.add(new Point(nextNode));
 					nextNode = map[nextNode.x][nextNode.y];
 				}
-				return myNodes;
 			}
-			else return null;
 		}
 		else{
 			return null;

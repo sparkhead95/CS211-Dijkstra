@@ -25,7 +25,6 @@ public class Chh57Snapper implements ISnapper {
 				}
 				return myNodes;
 			}
-			else return null;
 		}
 		else{
 			return null;

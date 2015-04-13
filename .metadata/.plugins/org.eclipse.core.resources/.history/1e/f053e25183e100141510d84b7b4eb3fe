@@ -17,15 +17,9 @@ public class Chh57Snapper implements ISnapper {
 	public LinkedList<Point> getPath(int xCoord, int yCoord) {
 		if (checkBounds(xCoord, yCoord)){
 			if (visited[xCoord][yCoord]){
-				LinkedList<Point> myNodes = new LinkedList<Point>();
-				Point nextNode = map[xCoord][yCoord];
-				while (nextNode!=null){
-					myNodes.add(new Point(nextNode));
-					nextNode = map[nextNode.x][nextNode.y];
-				}
-				return myNodes;
+				LinkedList<Point> myNode = new LinkedList<Point>();
+				Point nextNode
 			}
-			else return null;
 		}
 		else{
 			return null;
