@@ -15,22 +15,24 @@ public class Chh57Snapper implements ISnapper {
 	private FloatImage[] floatImages;
 
 	public LinkedList<Point> getPath(int xCoord, int yCoord) {
-		if (checkBounds(xCoord, yCoord)) {
-			if (visited[xCoord][yCoord]) {
+		if (checkBounds(xCoord, yCoord)){
+			if (visited[xCoord][yCoord]){
 				LinkedList<Point> myNodes = new LinkedList<Point>();
 				Point nextNode = map[xCoord][yCoord];
-				while (nextNode != null) {
+				while (nextNode!=null){
 					myNodes.add(new Point(nextNode));
 					nextNode = map[nextNode.x][nextNode.y];
 				}
 				return myNodes;
-			} else {
+			}
+			else {
 				return null;
 			}
-		} else {
+		}
+		else{
 			return null;
 		}
-
+		
 	}
 
 	// @param The neighborPixels variable is the array of pixels next to the
@@ -51,7 +53,7 @@ public class Chh57Snapper implements ISnapper {
 		Runnable run = new Runnable() {
 
 			public void run() {
-
+				
 				mapBuilding(edges);
 			}
 
@@ -63,7 +65,7 @@ public class Chh57Snapper implements ISnapper {
 	public void mapBuilding(PriorityBlockingQueue<Edge> eQueue) {
 		Edge newEdge;
 		try {
-			while (!eQueue.isEmpty()) {
+		while (!eQueue.isEmpty()) {
 				// take an edge off the top of the queue
 				Edge thisEdge = eQueue.take();
 				// if the position is in bounds
@@ -74,7 +76,7 @@ public class Chh57Snapper implements ISnapper {
 						visited[thisEdge.destination.x][thisEdge.destination.y] = true;
 						// place the position on map
 						map[thisEdge.destination.x][thisEdge.destination.y] = thisEdge.start;
-
+						
 						// @param for the Eastern Node
 						float weight = floatImages[0].get_nocheck(
 								thisEdge.destination.x, thisEdge.destination.y);
@@ -113,7 +115,7 @@ public class Chh57Snapper implements ISnapper {
 						eQueue.add(newEdge);
 					}
 				}
-
+				
 				// @param the below is for reverse directions
 				if ((checkBounds(thisEdge.destination.x - 1,
 						thisEdge.destination.y)) // west
@@ -123,40 +125,41 @@ public class Chh57Snapper implements ISnapper {
 								thisEdge.destination.y - 1) // south
 						&& (checkBounds(thisEdge.destination.x + 1,
 								thisEdge.destination.y - 1)))) { // southeast
-
+					
+					
 					// @param for the Western Node
 					float weight = floatImages[0].get_nocheck(
 							thisEdge.destination.x, thisEdge.destination.y);
 					newEdge = new Edge(new Point(thisEdge.destination.x,
-							thisEdge.destination.y),
-							new Point(thisEdge.destination.x - 1,
-									thisEdge.destination.y), weight
-									+ thisEdge.weight);
+							thisEdge.destination.y), new Point(
+							thisEdge.destination.x - 1,
+							thisEdge.destination.y), weight
+							+ thisEdge.weight);
 					eQueue.add(newEdge);
-
+					
 					// @param for the South Western Node
-					weight = floatImages[0].get_nocheck(thisEdge.destination.x,
-							thisEdge.destination.y);
+					weight = floatImages[0].get_nocheck(
+							thisEdge.destination.x, thisEdge.destination.y);
 					newEdge = new Edge(new Point(thisEdge.destination.x,
 							thisEdge.destination.y), new Point(
 							thisEdge.destination.x - 1,
 							thisEdge.destination.y - 1), weight
 							+ thisEdge.weight);
 					eQueue.add(newEdge);
-
+					
 					// @param for the South Node
-					weight = floatImages[0].get_nocheck(thisEdge.destination.x,
-							thisEdge.destination.y);
+					weight = floatImages[0].get_nocheck(
+							thisEdge.destination.x, thisEdge.destination.y);
 					newEdge = new Edge(new Point(thisEdge.destination.x,
-							thisEdge.destination.y),
-							new Point(thisEdge.destination.x,
-									thisEdge.destination.y - 1), weight
-									+ thisEdge.weight);
+							thisEdge.destination.y), new Point(
+							thisEdge.destination.x,
+							thisEdge.destination.y - 1), weight
+							+ thisEdge.weight);
 					eQueue.add(newEdge);
-
+					
 					// @param for the South east Node
-					weight = floatImages[0].get_nocheck(thisEdge.destination.x,
-							thisEdge.destination.y);
+					weight = floatImages[0].get_nocheck(
+							thisEdge.destination.x, thisEdge.destination.y);
 					newEdge = new Edge(new Point(thisEdge.destination.x,
 							thisEdge.destination.y), new Point(
 							thisEdge.destination.x + 1,
@@ -165,9 +168,10 @@ public class Chh57Snapper implements ISnapper {
 					eQueue.add(newEdge);
 
 				}
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
-		} catch (InterruptedException ie) {
-			ie.printStackTrace();
+
 		}
 	}
 
@@ -193,6 +197,32 @@ public class Chh57Snapper implements ISnapper {
 			return Float.valueOf(weight).compareTo(otherEdge.weight);
 		}
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }
