@@ -25,9 +25,7 @@ public class Chh57Snapper implements ISnapper {
 				}
 				return myNodes;
 			}
-			else {
-				return null;
-			}
+			else return null;
 		}
 		else{
 			return null;
@@ -53,7 +51,7 @@ public class Chh57Snapper implements ISnapper {
 		Runnable run = new Runnable() {
 
 			public void run() {
-				
+				// TODO Auto-generated method stub
 				mapBuilding(edges);
 			}
 
@@ -66,17 +64,11 @@ public class Chh57Snapper implements ISnapper {
 		Edge newEdge;
 		while (!eQueue.isEmpty()) {
 			try {
-				// take an edge off the top of the queue
 				Edge thisEdge = eQueue.take();
-				// if the position is in bounds
 				if (checkBounds(thisEdge.destination.x, thisEdge.destination.y)) {
-					// if the position has not been visited
 					if (!(visited[thisEdge.destination.x][thisEdge.destination.y])) {
-						// set it to visited
 						visited[thisEdge.destination.x][thisEdge.destination.y] = true;
-						// place the position on map
 						map[thisEdge.destination.x][thisEdge.destination.y] = thisEdge.start;
-						
 						// @param for the Eastern Node
 						float weight = floatImages[0].get_nocheck(
 								thisEdge.destination.x, thisEdge.destination.y);
@@ -194,7 +186,19 @@ public class Chh57Snapper implements ISnapper {
 		}
 
 		public int compareTo(Edge otherEdge) {
-			return Float.valueOf(weight).compareTo(otherEdge.weight);
+			 if(this.weight > otherEdge.weight)
+	            {
+	                return 1;
+	            }
+	            else if (this.weight < otherEdge.weight)
+	            {
+	                return -1;
+	            }
+	            else
+	            {
+	                return  0;
+	            }
+			//return Float.valueOf(weight).compareTo(otherEdge.weight);
 		}
 
 	}
