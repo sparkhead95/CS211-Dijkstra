@@ -1,0 +1,174 @@
+package cs21120.assignment2.solution;
+
+import java.awt.Point;
+import java.util.LinkedList;
+import java.util.concurrent.PriorityBlockingQueue;
+
+import cs21120.assignment2.FloatImage;
+import cs21120.assignment2.ISnapper;
+
+public class Chh57Snapper implements ISnapper {
+
+	// The below boolean will be of the same size as the pixels in the image
+	private boolean[][] visited;
+	private Point[][] map;
+	private FloatImage[] floatImages;
+
+	public LinkedList<Point> getPath(int xCoord, int yCoord) {
+		if (checkBounds(xCoord, yCoord)) {
+			if (visited[xCoord][yCoord]) {
+				LinkedList<Point> myNodes = new LinkedList<Point>();
+				Point nextNode = map[xCoord][yCoord];
+				while (nextNode != null) {
+					myNodes.add(new Point(nextNode));
+					nextNode = map[nextNode.x][nextNode.y];
+				}
+				return myNodes;
+			} else {
+				return null;
+			}
+		} else {
+			return null;
+		}
+
+	}
+
+	// @param The neighborPixels variable is the array of pixels next to the
+	// mouse coords
+	// @param xCoord is the x coordinates of the mouse click
+	// @param yCoord is the y coordinates of the mouse click
+	public void setSeed(int xCoord, int yCoord, FloatImage[] neighborImages) {
+		final PriorityBlockingQueue<Edge> edges = new PriorityBlockingQueue<Edge>();
+		/*
+		 * neighborPixels: 0 is east 1 is northeast, 2 north, 3 northwest
+		 */
+		floatImages = neighborImages;
+		visited = new boolean[neighborImages[0].getWidth()][neighborImages[0]
+				.getHeight()];
+		map = new Point[neighborImages[0].getWidth()][neighborImages[0]
+				.getHeight()];
+		edges.add(new Edge(null, new Point(xCoord, yCoord), 0));
+		Runnable run = new Runnable() {
+
+			public void run() {
+
+				mapBuilding(edges);
+			}
+
+		};
+		Thread thisThread = new Thread(run);
+		thisThread.start();
+	}
+
+	public void mapBuilding(PriorityBlockingQueue<Edge> eQueue) {
+		float weight;
+        Edge newEdge;
+        //Try catch block to catch interrupted exceptions
+        try {
+            //While the queue is not empty
+            while (!eQueue.isEmpty()) {
+                Edge currentEdge = eQueue.take();
+                //Move onto next iteration if co-ords out of bounds
+                if (checkOutOfBounds(currentEdge.destination.x, currentEdge.destination.y))
+                {
+                    continue;
+                }
+                //Move onto next iteration if node is visited
+                if (nodesVisited[currentEdge.destination.x][currentEdge.destination.y])
+                {
+                    continue;
+                }
+                //Set visited flag to true (Dijkstra's Algorithm step)
+                visited[currentEdge.destination.x][currentEdge.destination.y] = true;
+                //Set map value to edge's to start point (Dijkstra's Algorithm step)
+                map[currentEdge.destination.x][currentEdge.destination.y] = currentEdge.start;
+
+                //Add target point's edges (Dijkstra's Algorithm step)
+                //Add the eastern node as a neighbour
+                weight = fi[0].get_nocheck(currentEdge.destination.x, currentEdge.destination.y);
+                newEdge = new Edge(new Point(currentEdge.destination.x, currentEdge.destination.y), new Point(currentEdge.destination.x + 1,
+                        currentEdge.destination.y), weight + currentEdge.weight);
+                q.add(newEdge);
+
+                //Add the north-eastern node as a neighbour
+                weight = fi[1].get_nocheck(currentEdge.destination.x, currentEdge.destination.y);
+                newEdge = new Edge(new Point(currentEdge.destination.x, currentEdge.destination.y), new Point(currentEdge.destination.x + 1,
+                        currentEdge.destination.y + 1), weight + currentEdge.weight);
+                q.add(newEdge);
+
+                //Add the northern node as a neighbour
+                weight = fi[2].get_nocheck(currentEdge.destination.x, currentEdge.destination.y);
+                newEdge = new Edge(new Point(currentEdge.destination.x, currentEdge.destination.y), new Point(currentEdge.destination.x,
+                        currentEdge.destination.y + 1), weight + currentEdge.weight);
+                q.add(newEdge);
+
+                //Add the north-western node as a neighbour
+                weight = fi[3].get_nocheck(currentEdge.destination.x, currentEdge.destination.y);
+                newEdge = new Edge(new Point(currentEdge.destination.x, currentEdge.destination.y), new Point(currentEdge.destination.x - 1,
+                        currentEdge.destination.y + 1), weight + currentEdge.weight);
+                q.add(newEdge);
+
+                //Check inverse directions are not out of bounds
+                if (!checkOutOfBounds(currentEdge.destination.x - 1, currentEdge.destination.y) //Western
+                        && !checkOutOfBounds(currentEdge.destination.x - 1, currentEdge.destination.y - 1) // South-western
+                        && !checkOutOfBounds(currentEdge.destination.x, currentEdge.destination.y - 1) //Southern
+                        && !checkOutOfBounds(currentEdge.destination.x + 1, currentEdge.destination.y - 1)) // South-eastern
+                {
+                    //Add the western node as a neighbour
+                    weight = fi[0].get_nocheck(currentEdge.destination.x, currentEdge.destination.y);
+                    newEdge = new Edge(new Point(currentEdge.destination.x, currentEdge.destination.y), new Point(currentEdge.destination.x - 1,
+                            currentEdge.destination.y), weight + currentEdge.weight);
+                    q.add(newEdge);
+
+                    //Add the south-western node as a neighbour
+                    weight = fi[1].get_nocheck(currentEdge.destination.x, currentEdge.destination.y);
+                    newEdge = new Edge(new Point(currentEdge.destination.x, currentEdge.destination.y), new Point(currentEdge.destination.x - 1,
+                            currentEdge.destination.y - 1), weight + currentEdge.weight);
+                    q.add(newEdge);
+
+                    //Add the southern node as a neighbour
+                    weight = fi[2].get_nocheck(currentEdge.destination.x, currentEdge.destination.y);
+                    newEdge = new Edge(new Point(currentEdge.destination.x, currentEdge.destination.y), new Point(currentEdge.destination.x,
+                            currentEdge.destination.y - 1), weight + currentEdge.weight);
+                    q.add(newEdge);
+
+                    //Add the south-eastern node as a neighbour
+                    weight = fi[3].get_nocheck(currentEdge.destination.x, currentEdge.destination.y);
+                    newEdge = new Edge(new Point(currentEdge.destination.x, currentEdge.destination.y), new Point(currentEdge.destination.x + 1,
+                            currentEdge.destination.y - 1), weight + currentEdge.weight);
+                    q.add(newEdge);
+                }
+            }
+        }
+        //Catch interrupted exception
+        catch (InterruptedException ie)
+        {
+            ie.printStackTrace();
+        }
+	}
+
+	private boolean checkBounds(int xCoord, int yCoord) {
+		return xCoord < map.length && yCoord < map[0].length && xCoord >= 0
+				&& yCoord >= 0;
+	}
+
+	// @param inner class for edge
+
+	private class Edge implements Comparable<Edge> {
+
+		private Point start, destination;
+		private float weight;
+
+		public Edge(Point s, Point d, float w) {
+			this.start = s;
+			this.destination = d;
+			this.weight = w;
+		}
+
+		public int compareTo(Edge otherEdge) {
+			return Float.valueOf(weight).compareTo(otherEdge.weight);
+		}
+
+	}
+
+}

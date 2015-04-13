@@ -62,57 +62,59 @@ public class Chh57Snapper implements ISnapper {
 
 	public void mapBuilding(PriorityBlockingQueue<Edge> eQueue) {
 		Edge newEdge;
+		float weight;
 		try {
 			while (!eQueue.isEmpty()) {
 				// take an edge off the top of the queue
 				Edge thisEdge = eQueue.take();
 				// if the position is in bounds
-				if (checkBounds(thisEdge.destination.x, thisEdge.destination.y)) {
-					// if the position has not been visited
-					if (!(visited[thisEdge.destination.x][thisEdge.destination.y])) {
-						// set it to visited
-						visited[thisEdge.destination.x][thisEdge.destination.y] = true;
-						// place the position on map
-						map[thisEdge.destination.x][thisEdge.destination.y] = thisEdge.start;
-
-						// @param for the Eastern Node
-						float weight = floatImages[0].get_nocheck(
-								thisEdge.destination.x, thisEdge.destination.y);
-						newEdge = new Edge(new Point(thisEdge.destination.x,
-								thisEdge.destination.y), new Point(
-								thisEdge.destination.x + 1,
-								thisEdge.destination.y), weight
-								+ thisEdge.weight);
-						eQueue.add(newEdge);
-						// @param for the North-Eastern Node
-						weight = floatImages[1].get_nocheck(
-								thisEdge.destination.x, thisEdge.destination.y);
-						newEdge = new Edge(new Point(thisEdge.destination.x,
-								thisEdge.destination.y), new Point(
-								thisEdge.destination.x + 1,
-								thisEdge.destination.y + 1), weight
-								+ thisEdge.weight);
-						eQueue.add(newEdge);
-						// @param for the Northern Node
-						weight = floatImages[2].get_nocheck(
-								thisEdge.destination.x, thisEdge.destination.y);
-						newEdge = new Edge(new Point(thisEdge.destination.x,
-								thisEdge.destination.y), new Point(
-								thisEdge.destination.x,
-								thisEdge.destination.y + 1), weight
-								+ thisEdge.weight);
-						eQueue.add(newEdge);
-						// @param for the North Western Node
-						weight = floatImages[3].get_nocheck(
-								thisEdge.destination.x, thisEdge.destination.y);
-						newEdge = new Edge(new Point(thisEdge.destination.x,
-								thisEdge.destination.y), new Point(
-								thisEdge.destination.x - 1,
-								thisEdge.destination.y + 1), weight
-								+ thisEdge.weight);
-						eQueue.add(newEdge);
-					}
+				if (!(checkBounds(thisEdge.destination.x,
+						thisEdge.destination.y))) {
+					continue;
 				}
+				// if the position has not been visited
+				if (visited[thisEdge.destination.x][thisEdge.destination.y]) {
+					continue;
+				}
+				// set it to visited
+				visited[thisEdge.destination.x][thisEdge.destination.y] = true;
+				// place the position on map
+				map[thisEdge.destination.x][thisEdge.destination.y] = thisEdge.start;
+
+				// @param for the Eastern Node
+				weight = floatImages[0].get_nocheck(thisEdge.destination.x,
+						thisEdge.destination.y);
+				newEdge = new Edge(new Point(thisEdge.destination.x,
+						thisEdge.destination.y), new Point(
+						thisEdge.destination.x + 1, thisEdge.destination.y),
+						weight + thisEdge.weight);
+				eQueue.add(newEdge);
+				// @param for the North-Eastern Node
+				weight = floatImages[1].get_nocheck(thisEdge.destination.x,
+						thisEdge.destination.y);
+				newEdge = new Edge(new Point(thisEdge.destination.x,
+						thisEdge.destination.y),
+						new Point(thisEdge.destination.x + 1,
+								thisEdge.destination.y + 1), weight
+								+ thisEdge.weight);
+				eQueue.add(newEdge);
+				// @param for the Northern Node
+				weight = floatImages[2].get_nocheck(thisEdge.destination.x,
+						thisEdge.destination.y);
+				newEdge = new Edge(new Point(thisEdge.destination.x,
+						thisEdge.destination.y), new Point(
+						thisEdge.destination.x, thisEdge.destination.y + 1),
+						weight + thisEdge.weight);
+				eQueue.add(newEdge);
+				// @param for the North Western Node
+				weight = floatImages[3].get_nocheck(thisEdge.destination.x,
+						thisEdge.destination.y);
+				newEdge = new Edge(new Point(thisEdge.destination.x,
+						thisEdge.destination.y),
+						new Point(thisEdge.destination.x - 1,
+								thisEdge.destination.y + 1), weight
+								+ thisEdge.weight);
+				eQueue.add(newEdge);
 
 				// @param the below is for reverse directions
 				if ((checkBounds(thisEdge.destination.x - 1,
@@ -125,8 +127,8 @@ public class Chh57Snapper implements ISnapper {
 								thisEdge.destination.y - 1)))) { // southeast
 
 					// @param for the Western Node
-					float weight = floatImages[0].get_nocheck(
-							thisEdge.destination.x, thisEdge.destination.y);
+					weight = floatImages[0].get_nocheck(thisEdge.destination.x,
+							thisEdge.destination.y);
 					newEdge = new Edge(new Point(thisEdge.destination.x,
 							thisEdge.destination.y),
 							new Point(thisEdge.destination.x - 1,
