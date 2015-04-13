@@ -158,12 +158,11 @@ public class Chh57Snapper implements ISnapper {
 
 					// @param for the South east Node
 					weight = setWeight(3, thisEdge);
-					newEdge = findEdge(thisEdge, weight, "plus", "minus", 1, 1);
-					/*newEdge = new Edge(new Point(thisEdge.destination.x,
+					newEdge = new Edge(new Point(thisEdge.destination.x,
 							thisEdge.destination.y), new Point(
 							thisEdge.destination.x + 1,
 							thisEdge.destination.y - 1), weight
-							+ thisEdge.weight);*/
+							+ thisEdge.weight);
 					eQueue.add(newEdge);
 
 				}

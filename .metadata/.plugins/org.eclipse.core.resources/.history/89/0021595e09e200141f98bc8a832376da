@@ -83,7 +83,7 @@ public class Chh57Snapper implements ISnapper {
 
 				// @param for the Eastern Node
 				weight = setWeight(0, thisEdge);
-				newEdge = findEdge(thisEdge, weight, "plus", "null", 1, 0);
+				newEdge = findEdge(thisEdge, weight, 1, 0);
 				/*newEdge = new Edge(new Point(thisEdge.destination.x,
 						thisEdge.destination.y), new Point(
 						thisEdge.destination.x + 1, thisEdge.destination.y),
@@ -91,29 +91,26 @@ public class Chh57Snapper implements ISnapper {
 				eQueue.add(newEdge);
 				// @param for the North-Eastern Node
 				weight = setWeight(1, thisEdge);
-				newEdge = findEdge(thisEdge, weight, "plus", "plus", 1, 1);
-				/*newEdge = new Edge(new Point(thisEdge.destination.x,
+				newEdge = new Edge(new Point(thisEdge.destination.x,
 						thisEdge.destination.y),
 						new Point(thisEdge.destination.x + 1,
 								thisEdge.destination.y + 1), weight
-								+ thisEdge.weight);*/
+								+ thisEdge.weight);
 				eQueue.add(newEdge);
 				// @param for the Northern Node
 				weight = setWeight(2, thisEdge);
-				newEdge = findEdge(thisEdge, weight, "null", "plus", 0, 1);
-				/*newEdge = new Edge(new Point(thisEdge.destination.x,
+				newEdge = new Edge(new Point(thisEdge.destination.x,
 						thisEdge.destination.y), new Point(
 						thisEdge.destination.x, thisEdge.destination.y + 1),
-						weight + thisEdge.weight);*/
+						weight + thisEdge.weight);
 				eQueue.add(newEdge);
 				// @param for the North Western Node
 				weight = setWeight(3, thisEdge);
-				newEdge = findEdge(thisEdge, weight, "minus", "plus", 1, 1);
-				/*newEdge = new Edge(new Point(thisEdge.destination.x,
+				newEdge = new Edge(new Point(thisEdge.destination.x,
 						thisEdge.destination.y),
 						new Point(thisEdge.destination.x - 1,
 								thisEdge.destination.y + 1), weight
-								+ thisEdge.weight);*/
+								+ thisEdge.weight);
 				eQueue.add(newEdge);
 
 				// @param the below is for reverse directions
@@ -128,42 +125,38 @@ public class Chh57Snapper implements ISnapper {
 
 					// @param for the Western Node
 					weight = setWeight(0, thisEdge);
-					newEdge = findEdge(thisEdge, weight, "minus", "null", 1, 0);
-					/*newEdge = new Edge(new Point(thisEdge.destination.x,
+					newEdge = new Edge(new Point(thisEdge.destination.x,
 							thisEdge.destination.y),
 							new Point(thisEdge.destination.x - 1,
 									thisEdge.destination.y), weight
-									+ thisEdge.weight);*/
+									+ thisEdge.weight);
 					eQueue.add(newEdge);
 
 					// @param for the South Western Node
 					weight = setWeight(1, thisEdge);
-					newEdge = findEdge(thisEdge, weight, "minus", "minus", 1, 1);
-					/*newEdge = new Edge(new Point(thisEdge.destination.x,
+					newEdge = new Edge(new Point(thisEdge.destination.x,
 							thisEdge.destination.y), new Point(
 							thisEdge.destination.x - 1,
 							thisEdge.destination.y - 1), weight
-							+ thisEdge.weight);*/
+							+ thisEdge.weight);
 					eQueue.add(newEdge);
 
 					// @param for the South Node
 					weight = setWeight(2, thisEdge);
-					newEdge = findEdge(thisEdge, weight, "null", "minus", 0, 1);
-					/*newEdge = new Edge(new Point(thisEdge.destination.x,
+					newEdge = new Edge(new Point(thisEdge.destination.x,
 							thisEdge.destination.y),
 							new Point(thisEdge.destination.x,
 									thisEdge.destination.y - 1), weight
-									+ thisEdge.weight);*/
+									+ thisEdge.weight);
 					eQueue.add(newEdge);
 
 					// @param for the South east Node
 					weight = setWeight(3, thisEdge);
-					newEdge = findEdge(thisEdge, weight, "plus", "minus", 1, 1);
-					/*newEdge = new Edge(new Point(thisEdge.destination.x,
+					newEdge = new Edge(new Point(thisEdge.destination.x,
 							thisEdge.destination.y), new Point(
 							thisEdge.destination.x + 1,
 							thisEdge.destination.y - 1), weight
-							+ thisEdge.weight);*/
+							+ thisEdge.weight);
 					eQueue.add(newEdge);
 
 				}
