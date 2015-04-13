@@ -170,10 +170,10 @@ public class Chh57Snapper implements ISnapper {
 				thisEdge.destination.y);
 	}
 	
-	/*public Edge findEdge(Edge thisEdge){
+	public Edge findEdge(Edge thisEdge){
 		return null;
 		
-	}*/
+	}
 
 	private boolean checkBounds(int xCoord, int yCoord) {
 		return xCoord < map.length && yCoord < map[0].length && xCoord >= 0
